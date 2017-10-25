@@ -10,25 +10,16 @@ Assumes the "including application) has defined one of the following
 Contains several cpp defined constants for project builds.
 All *465 constants start and end with 2 underscores.
 
-__Linux__     // Ubuntu or other distro
-__Mac__       // Mac OSX 
-__MinGW__     // Windows, Minimalist Gnu for Windows
-__Windows__   // Windows, Visual Studio 201?)
-__PI__        // Define for PI = glm::pi<float>(); value
+__Linux__      // Ubuntu or other distro
+__Mac__        // Mac OSX 
+__MinGW__      // Windows, Minimalist Gnu for Windows
+__Windows__    // Windows, Visual Studio 201?)
 
-Includes utility *.hpp files with functions to: 
-	shaders465.hpp		load glsl shaders 
-	triModel465.hpp		load AC3D *.tri models
-	gmlUtils465.hpp		print mat4, vec3, and vec4 values
-				get/set right, left, up, down, in, out reference vectors
-				test if vec3, vec4, or mat4 are nan (Not-A-Number)
-				convert dot product to radian (acos) w/out nan
-				
-	texture465.hpp		load a raw texture -- not part of the automatic includes
-				must include when needed
+Includes utility functions to load glsl shaders and 
+AC3D *.tri models.
 
 Mike Barnes
-9/27/2017
+8/25/2016
 */
 
 // defines and includes
@@ -70,13 +61,10 @@ Mike Barnes
 # include <glm/gtc/constants.hpp>
 # include <glm/gtc/matrix_transform.hpp>
 # include <glm/gtc/type_ptr.hpp>
-# include <glm/gtc/quaternion.hpp>
-# include <glm/gtx/quaternion.hpp>
 # include "../includes465/glmUtils465.hpp"  // print matrices and vectors, ... 
 # include "../includes465/shader465.hpp"    // load vertex and fragment shaders
 # include "../includes465/triModel465.hpp"  // load AC3D *.tri model 
-
-# ifndef __PI__  // set constant for PI, convience
-# define __PI__
-const float PI = glm::pi<float>();
-# endif
+#include "../includes465/texture.hpp"
+// PI to 10 digits
+const float PI = 3.14159265358f;  
+ 
